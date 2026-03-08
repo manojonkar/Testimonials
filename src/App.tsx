@@ -1,15 +1,10 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { 
-  Play, 
   Image as ImageIcon, 
   Quote, 
   Sparkles, 
-  Video, 
   X, 
-  Upload,
-  Loader2,
   ArrowRight,
   ExternalLink,
   Star,
@@ -19,17 +14,6 @@ import {
   Award
 } from 'lucide-react';
 import { testimonials, Testimonial } from './data/testimonials';
-import { generateVisual, generateVideo } from './services/ai';
-
-// Extend window for AI Studio API
-declare global {
-  interface Window {
-    aistudio: {
-      hasSelectedApiKey: () => Promise<boolean>;
-      openSelectKey: () => Promise<void>;
-    };
-  }
-}
 
 const StatCard = ({ icon: Icon, label, value }: { icon: any, label: string, value: string }) => (
   <div className="glass p-6 rounded-2xl flex flex-col items-center text-center">
@@ -72,14 +56,7 @@ const Avatar = ({ src, name, size = "md" }: { src: string, name: string, size?: 
 
 export default function App() {
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
-  const [generatedVisual, setGeneratedVisual] = useState<string | null>(null);
-  const [generatedVideo, setGeneratedVideo] = useState<string | null>(null);
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [generationStep, setGenerationStep] = useState('');
-  const [hasKey, setHasKey] = useState(false);
   const [featuredIndex, setFeaturedIndex] = useState(0);
-  const [uploadImage, setUploadImage] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -92,84 +69,6 @@ export default function App() {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
 
-  useEffect(() => {
-    checkApiKey();
-  }, []);
-
-  const checkApiKey = async () => {
-    if (window.aistudio) {
-      const selected = await window.aistudio.hasSelectedApiKey();
-      setHasKey(selected);
-    }
-  };
-
-  const handleOpenKeySelector = async () => {
-    if (window.aistudio) {
-      await window.aistudio.openSelectKey();
-      setHasKey(true);
-    }
-  };
-
-  const handleGenerateVisual = async (testimonial: Testimonial) => {
-    setIsGenerating(true);
-    setGenerationStep('Crafting world-class visual...');
-    try {
-      const visual = await generateVisual(testimonial.text);
-      setGeneratedVisual(visual);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsGenerating(false);
-      setGenerationStep('');
-    }
-  };
-
-  const handleGenerateVideo = async (testimonial: Testimonial, image?: string) => {
-    if (!hasKey) {
-      await handleOpenKeySelector();
-    }
-    setIsGenerating(true);
-    setGenerationStep('Initializing cinematic video engine...');
-    try {
-      const prompt = `A cinematic, professional video representing the growth and transformation described in this testimonial: ${testimonial.text}. High production value, smooth transitions, professional lighting.`;
-      const video = await generateVideo(prompt, image);
-      setGeneratedVideo(video);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsGenerating(false);
-      setGenerationStep('');
-    }
-  };
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setUploadImage(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleAnimateUploadedImage = async () => {
-    if (!uploadImage) return;
-    if (!hasKey) await handleOpenKeySelector();
-    
-    setIsGenerating(true);
-    setGenerationStep('Animating your image with Veo...');
-    try {
-      const video = await generateVideo("Animate this professional scene with subtle, cinematic motion. Maintain high quality and professional atmosphere.", uploadImage);
-      setGeneratedVideo(video);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsGenerating(false);
-      setGenerationStep('');
-    }
-  };
-
   return (
     <div className="min-h-screen bg-luxury-bg text-white selection:bg-luxury-accent selection:text-white">
       {/* Navigation */}
@@ -180,16 +79,10 @@ export default function App() {
         </div>
         <div className="hidden md:flex items-center gap-8">
           <a href="#testimonials" className="text-sm font-medium opacity-60 hover:opacity-100 transition-opacity">Testimonials</a>
-          <a href="#highlights" className="text-sm font-medium opacity-60 hover:opacity-100 transition-opacity">Highlights</a>
-          <a href="#animate" className="text-sm font-medium opacity-60 hover:opacity-100 transition-opacity">Magic Studio</a>
-          {!hasKey && (
-            <button 
-              onClick={handleOpenKeySelector}
-              className="px-4 py-2 bg-white/10 rounded-full text-xs font-semibold hover:bg-white/20 transition-all border border-white/10"
-            >
-              Connect Veo
-            </button>
-          )}
+          <a href="#highlights" className="text-sm font-medium opacity-60 hover:opacity-100 transition-opacity">Program Highlights</a>
+          <a href="https://www.exoorg.com/ODeX" target="_blank" rel="noreferrer" className="px-5 py-2 bg-luxury-accent/10 text-luxury-accent rounded-full text-xs font-bold border border-luxury-accent/20 hover:bg-luxury-accent hover:text-black transition-all">
+            ODeX
+          </a>
         </div>
       </nav>
 
@@ -245,11 +138,14 @@ export default function App() {
               transition={{ delay: 0.3 }}
               className="flex flex-wrap justify-center gap-4"
             >
-              <a href="#featured" className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-luxury-accent transition-all">
+              <a href="https://www.exoorg.com/ODeX" target="_blank" rel="noreferrer" className="px-8 py-4 bg-luxury-accent text-black font-bold rounded-full hover:bg-white transition-all">
+                Know More
+              </a>
+              <a href="#featured" className="px-8 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all border border-white/10">
                 Featured Story
               </a>
               <a href="#testimonials" className="px-8 py-4 glass text-white font-bold rounded-full hover:bg-white/10 transition-all">
-                Explore Wall of Love
+                Wall of Love
               </a>
             </motion.div>
           </motion.div>
@@ -391,116 +287,278 @@ export default function App() {
           </div>
         </section>
 
-        {/* Program Highlights */}
-        <section id="highlights" className="py-32 bg-white/5">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-20 items-center">
+        {/* The Destination Section */}
+        <section className="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-serif mb-6">The <span className="text-luxury-accent italic">Destination</span></h2>
+            <p className="text-white/40 max-w-xl mx-auto">What is an Extraordinary Organization? It goes far beyond hitting quarterly numbers. It's a new vision for what your organization can become.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            <motion.div whileHover={{ scale: 1.05 }} className="text-center p-8 glass rounded-3xl border border-white/5">
+              <div className="w-20 h-20 bg-luxury-accent/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-luxury-accent/20">
+                <Zap className="w-10 h-10 text-luxury-accent" />
+              </div>
+              <h4 className="text-2xl font-serif mb-4">Future Ready</h4>
+              <p className="text-white/40 leading-relaxed">Nimble, adaptive, and built to pivot, ready for whatever curveballs the world throws at it.</p>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} className="text-center p-8 glass rounded-3xl border border-white/5">
+              <div className="w-20 h-20 bg-luxury-accent/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-luxury-accent/20">
+                <Users className="w-10 h-10 text-luxury-accent" />
+              </div>
+              <h4 className="text-2xl font-serif mb-4">People-Centric</h4>
+              <p className="text-white/40 leading-relaxed">A place where people bring their whole selves to work: their Head (intellect), Heart (passion), and Soul (deep commitment).</p>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} className="text-center p-8 glass rounded-3xl border border-white/5">
+              <div className="w-20 h-20 bg-luxury-accent/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-luxury-accent/20">
+                <Sparkles className="w-10 h-10 text-luxury-accent" />
+              </div>
+              <h4 className="text-2xl font-serif mb-4">Purpose-Driven</h4>
+              <p className="text-white/40 leading-relaxed">It's not just about profit. It's about making a real, positive difference in the world and leaving a lasting mark.</p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Program Highlights - The 5 Pillars Roadmap */}
+        <section id="highlights" className="py-32 px-6 max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-serif mb-6">The ODeX <span className="text-luxury-accent italic">Roadmap</span></h2>
+            <p className="text-white/40 max-w-xl mx-auto">A complete, integrated system designed to build greatness from the ground up, weaving leadership, culture, strategy, and talent into one actionable plan.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[900px]">
+            {/* Main Highlight: Leadership & Culture (Pillars 1 & 2) */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="md:col-span-2 md:row-span-2 glass rounded-[2.5rem] p-12 flex flex-col justify-between relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-luxury-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div>
-                <h2 className="text-4xl md:text-6xl font-serif mb-8">The ODeX <br /><span className="text-luxury-accent italic">Edge.</span></h2>
-                <div className="space-y-6">
-                  {[
-                    "Deep Listening & Strategic Thinking",
-                    "Theory U & Exponential Organizations",
-                    "5 Choices Framework of AG Lafley",
-                    "Actionable Implementation Roadmaps",
-                    "Inclusive Growth & Massive Purpose",
-                    "Eco-thinking for Social Impact"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-4">
-                      <CheckCircle2 className="w-6 h-6 text-luxury-accent" />
-                      <span className="text-lg font-light text-white/80">{item}</span>
-                    </div>
-                  ))}
+                <div className="w-12 h-12 bg-luxury-accent/20 rounded-2xl flex items-center justify-center mb-8">
+                  <Users className="w-6 h-6 text-luxury-accent" />
+                </div>
+                <h3 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">Transforming Leadership <br />& Organizational Culture</h3>
+                <p className="text-xl text-white/60 font-light leading-relaxed max-w-xl">
+                  Develop collective leadership where everyone takes initiative, collaborates, and co-creates the future. Break down silos and shift to an outside-in, customer-focused view across the entire organization.
+                </p>
+              </div>
+              <div className="mt-12 flex items-center gap-4">
+                <div className="px-6 py-3 bg-white/5 rounded-full border border-white/10 text-xs uppercase tracking-widest font-bold">Collective Leadership</div>
+                <div className="px-6 py-3 bg-white/5 rounded-full border border-white/10 text-xs uppercase tracking-widest font-bold">Outside-In Perspective</div>
+              </div>
+            </motion.div>
+
+            {/* Pillar 3: Strategic Breakthroughs */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="glass rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center group"
+            >
+              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-luxury-accent/20 transition-colors">
+                <Zap className="w-8 h-8 text-luxury-accent" />
+              </div>
+              <h4 className="text-2xl font-serif mb-4">Strategic Breakthroughs</h4>
+              <p className="text-sm text-white/40 leading-relaxed">Become truly unique and compelling in the eyes of your target customers.</p>
+            </motion.div>
+
+            {/* Pillar 4: Exceptional Execution */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="glass rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center group"
+            >
+              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-luxury-accent/20 transition-colors">
+                <Award className="w-8 h-8 text-luxury-accent" />
+              </div>
+              <h4 className="text-2xl font-serif mb-4">Exceptional Execution</h4>
+              <p className="text-sm text-white/40 leading-relaxed">Get everyone in the company aligned and playing the same game in a synchronized way.</p>
+            </motion.div>
+
+            {/* Pillar 5: Talent Management */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="md:col-span-3 glass rounded-[2.5rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 group"
+            >
+              <div className="flex items-center gap-8">
+                <div className="w-20 h-20 bg-luxury-accent/10 rounded-3xl flex items-center justify-center shrink-0">
+                  <Sparkles className="w-10 h-10 text-luxury-accent" />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-serif mb-2">Master Talent Management</h4>
+                  <p className="text-white/40 max-w-md">Learn the fundamentals of attracting, training, and managing the right people to fuel the entire system.</p>
                 </div>
               </div>
-              <div className="relative">
-                <div className="aspect-square rounded-3xl overflow-hidden glass p-2">
-                  <img 
-                    src="https://picsum.photos/seed/strategy/800/800" 
-                    className="w-full h-full object-cover rounded-2xl opacity-80"
-                    alt="Strategy"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="absolute -bottom-10 -left-10 glass p-8 rounded-2xl max-w-xs border border-white/10">
-                  <p className="text-sm font-serif italic mb-6 leading-relaxed">"This program challenges the status quo and gives an opportunity to practice all the learning."</p>
-                  <div className="flex items-center gap-4">
-                    <Avatar src={testimonials[0].image} name={testimonials[0].name} size="sm" />
-                    <div>
-                      <p className="text-[10px] uppercase tracking-widest text-luxury-accent font-bold">{testimonials[0].name}</p>
-                      <p className="text-[8px] uppercase tracking-widest text-white/40">{testimonials[0].company}</p>
-                    </div>
-                  </div>
-                </div>
+              <a 
+                href="https://www.exoorg.com/ODeX" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="px-10 py-5 bg-white text-black font-bold rounded-full hover:bg-luxury-accent transition-all shrink-0"
+              >
+                Know More
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Elite Experience Section */}
+        <section className="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-serif mb-6">An <span className="text-luxury-accent italic">Elite</span> Experience</h2>
+            <p className="text-white/40 max-w-xl mx-auto">Not another training seminar. This is an elite development experience crafted for leaders committed to transformative results.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            <motion.div whileHover={{ y: -10 }} className="text-center p-8 glass rounded-3xl border border-white/5">
+              <div className="w-20 h-20 bg-luxury-accent/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-luxury-accent/20">
+                <Zap className="w-10 h-10 text-luxury-accent" />
               </div>
+              <h4 className="text-2xl font-serif mb-4">Hands-on Practical Application</h4>
+              <p className="text-white/40 leading-relaxed">Go beyond theory. Apply your learning directly to your biggest business challenges inside your own organization with full support.</p>
+            </motion.div>
+            <motion.div whileHover={{ y: -10 }} className="text-center p-8 glass rounded-3xl border border-white/5">
+              <div className="w-20 h-20 bg-luxury-accent/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-luxury-accent/20">
+                <Award className="w-10 h-10 text-luxury-accent" />
+              </div>
+              <h4 className="text-2xl font-serif mb-4">World-Class Content</h4>
+              <p className="text-white/40 leading-relaxed">Learn a curated suite of proven management technologies from faculty with decades of real-world experience transforming businesses.</p>
+            </motion.div>
+            <motion.div whileHover={{ y: -10 }} className="text-center p-8 glass rounded-3xl border border-white/5">
+              <div className="w-20 h-20 bg-luxury-accent/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-luxury-accent/20">
+                <Sparkles className="w-10 h-10 text-luxury-accent" />
+              </div>
+              <h4 className="text-2xl font-serif mb-4">Generate Measurable Impact</h4>
+              <p className="text-white/40 leading-relaxed">The entire program is laser-focused on one thing: generating tangible, measurable outcomes that you can see in real-time.</p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* The ODeX Journey Section */}
+        <section className="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-serif mb-6">The ODeX <span className="text-luxury-accent italic">Journey</span></h2>
+            <p className="text-white/40 max-w-xl mx-auto">Real transformation doesn't happen in a weekend. It takes sustained effort to build new habits and systems that stick.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="glass p-8 rounded-3xl border border-white/5">
+              <div className="text-luxury-accent text-4xl font-serif mb-4">06</div>
+              <h4 className="text-xl font-serif mb-2">Deep Learning Weekends</h4>
+              <p className="text-sm text-white/40">One intensive weekend per month to create a new dimension of understanding in OD and Leadership.</p>
+            </div>
+            <div className="glass p-8 rounded-3xl border border-white/5">
+              <div className="text-luxury-accent text-4xl font-serif mb-4">18</div>
+              <h4 className="text-xl font-serif mb-2">Group Coaching Sessions</h4>
+              <p className="text-sm text-white/40">Weekly 2-hour sessions to deepen learnings and get implementation support for your specific challenges.</p>
+            </div>
+            <div className="glass p-8 rounded-3xl border border-white/5">
+              <div className="text-luxury-accent text-4xl font-serif mb-4">Peer</div>
+              <h4 className="text-xl font-serif mb-2">Dedicated Teams</h4>
+              <p className="text-sm text-white/40">Part of a dedicated team of 4-5 participants, providing support, accountability, and holistic development.</p>
+            </div>
+            <div className="glass p-8 rounded-3xl border border-white/5">
+              <div className="text-luxury-accent text-4xl font-serif mb-4">Live</div>
+              <h4 className="text-xl font-serif mb-2">Project Implementation</h4>
+              <p className="text-sm text-white/40">Get live support for starting and implementing a transformational project right inside your own organization.</p>
             </div>
           </div>
         </section>
 
-        {/* Magic Studio / Animate Section */}
-        <section id="animate" className="py-32 px-6 max-w-7xl mx-auto">
-          <div className="glass rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-luxury-accent to-transparent" />
-            
-            <Sparkles className="w-12 h-12 text-luxury-accent mx-auto mb-8 animate-pulse" />
-            <h2 className="text-4xl md:text-7xl font-serif mb-8 tracking-tight">Magic Studio</h2>
-            <p className="text-white/60 mb-16 max-w-2xl mx-auto text-lg font-light">
-              Experience the power of Veo AI. Upload your professional photo or a testimonial 
-              visual and let us animate it into a cinematic masterpiece.
-            </p>
-            
-            <div className="flex flex-col items-center gap-8">
-              <input 
-                type="file" 
-                ref={fileInputRef} 
-                onChange={handleImageUpload} 
-                className="hidden" 
-                accept="image/*"
-              />
-              
-              {uploadImage ? (
-                <div className="relative w-full max-w-2xl aspect-video rounded-3xl overflow-hidden border border-white/20 group shadow-2xl">
-                  <img src={uploadImage} alt="Upload" className="w-full h-full object-cover" />
-                  <button 
-                    onClick={() => setUploadImage(null)}
-                    className="absolute top-4 right-4 p-3 bg-black/50 rounded-full hover:bg-black transition-colors z-10"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center backdrop-blur-sm">
-                    <button 
-                      onClick={handleAnimateUploadedImage}
-                      className="px-10 py-5 bg-luxury-accent text-black font-bold rounded-full flex items-center gap-3 transform scale-90 group-hover:scale-100 transition-all shadow-xl"
-                    >
-                      <Video className="w-6 h-6" />
-                      Animate with Veo AI
-                    </button>
+        {/* Meet Your Faculty Section */}
+        <section className="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-[3rem] overflow-hidden glass p-3">
+                <img 
+                  src="https://i.ibb.co/v4m0n9v/manoj-onkar.jpg" 
+                  className="w-full h-full object-cover rounded-[2.5rem]"
+                  alt="Manoj Onkar"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="absolute -bottom-10 -right-10 glass p-8 rounded-3xl border border-white/10 max-w-xs">
+                <p className="text-sm font-serif italic mb-4">"His teaching style is dynamic, energetic, and highly motivational, making even complex subjects easy to grasp and apply."</p>
+                <p className="text-[10px] uppercase tracking-widest text-luxury-accent font-bold">Workshop Participant</p>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-4xl md:text-6xl font-serif mb-8">Meet Your <span className="text-luxury-accent italic">Faculty</span></h2>
+              <h3 className="text-2xl font-serif mb-6">Manoj Onkar</h3>
+              <div className="space-y-8">
+                <div className="flex gap-6">
+                  <div className="w-12 h-12 bg-luxury-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                    <Zap className="w-6 h-6 text-luxury-accent" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold mb-1">3 Decades of Experience</h4>
+                    <p className="text-white/40 text-sm">Deep expertise in individual and organizational transformation across diverse sectors.</p>
                   </div>
                 </div>
-              ) : (
-                <button 
-                  onClick={() => fileInputRef.current?.click()}
-                  className="w-full max-w-2xl aspect-video border-2 border-dashed border-white/10 rounded-[2rem] flex flex-col items-center justify-center gap-6 hover:border-luxury-accent/50 hover:bg-white/5 transition-all group"
-                >
-                  <div className="p-6 bg-white/5 rounded-full group-hover:scale-110 transition-transform group-hover:bg-luxury-accent/10">
-                    <Upload className="w-10 h-10 text-white/40 group-hover:text-luxury-accent" />
+                <div className="flex gap-6">
+                  <div className="w-12 h-12 bg-luxury-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                    <Users className="w-6 h-6 text-luxury-accent" />
                   </div>
-                  <div className="text-center">
-                    <span className="block text-xl font-serif mb-2">Drop your visual here</span>
-                    <span className="text-sm text-white/20 uppercase tracking-widest">Supports PNG, JPG, WEBP</span>
+                  <div>
+                    <h4 className="text-lg font-bold mb-1">50,000+ People Trained</h4>
+                    <p className="text-white/40 text-sm">Empowered over 50,000 individuals and 200+ trainers, coaches, and consultants worldwide.</p>
                   </div>
-                </button>
-              )}
+                </div>
+                <div className="flex gap-6">
+                  <div className="w-12 h-12 bg-luxury-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                    <Sparkles className="w-6 h-6 text-luxury-accent" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold mb-1">Global Impact</h4>
+                    <p className="text-white/40 text-sm">Participants from 10+ countries and 30+ industries have benefited from his unique teaching style.</p>
+                  </div>
+                </div>
+              </div>
+              <a 
+                href="https://www.exoorg.com/ODeX" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="mt-12 inline-block px-10 py-5 bg-white text-black font-bold rounded-full hover:bg-luxury-accent transition-all"
+              >
+                Learn More About Manoj
+              </a>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className="py-32 px-6 text-center">
-          <h2 className="text-4xl md:text-6xl font-serif mb-12">Ready to transform?</h2>
-          <button className="px-12 py-6 bg-white text-black font-bold rounded-full text-xl hover:bg-luxury-accent transition-all hover:scale-105">
-            Join the Next OD Batch
-          </button>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass mb-12 border border-luxury-accent/30 shadow-[0_0_30px_rgba(212,175,55,0.1)]"
+          >
+            <Sparkles className="w-4 h-4 text-luxury-accent" />
+            <span className="text-xs uppercase tracking-[0.2em] font-bold text-luxury-accent">Next Cohort: April 2026 — Sept 2026</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-7xl font-serif mb-8 tracking-tight">Ready to transform?</h2>
+          <p className="text-white/40 mb-16 max-w-2xl mx-auto text-xl font-light leading-relaxed">
+            Join an elite group of founders and CEOs in this 6-month immersive journey to build an extraordinary organization.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a 
+              href="https://www.exoorg.com/ODeX" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="px-12 py-6 bg-white text-black font-bold rounded-full text-xl hover:bg-luxury-accent transition-all hover:scale-105 shadow-2xl"
+            >
+              Join the Next OD Batch
+            </a>
+            <a 
+              href="https://www.exoorg.com/ODeX" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="px-12 py-6 glass text-white font-bold rounded-full text-xl hover:bg-white/10 transition-all hover:scale-105 border border-white/10"
+            >
+              Know More
+            </a>
+          </div>
+          <div className="mt-16 flex flex-col items-center gap-4">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold">Program Investment</p>
+            <div className="flex gap-8 items-center">
+              <span className="text-2xl font-serif text-white/60">INR 3L <span className="text-xs font-sans">+ tax</span></span>
+              <div className="w-px h-8 bg-white/10" />
+              <span className="text-2xl font-serif text-white/60">USD 3.5K</span>
+            </div>
+          </div>
         </section>
       </main>
 
@@ -517,16 +575,11 @@ export default function App() {
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="w-full max-w-6xl glass rounded-[2rem] overflow-hidden flex flex-col md:flex-row h-[90vh] md:h-auto max-h-[90vh]"
+              className="w-full max-w-4xl glass rounded-[2rem] overflow-hidden flex flex-col h-auto max-h-[90vh]"
             >
-              {/* Left Side: Content */}
-              <div className="flex-1 p-12 overflow-y-auto custom-scrollbar">
+              <div className="p-12 overflow-y-auto custom-scrollbar">
                 <button 
-                  onClick={() => {
-                    setSelectedTestimonial(null);
-                    setGeneratedVisual(null);
-                    setGeneratedVideo(null);
-                  }}
+                  onClick={() => setSelectedTestimonial(null)}
                   className="mb-8 p-3 hover:bg-white/10 rounded-full transition-colors"
                 >
                   <X className="w-6 h-6" />
@@ -547,91 +600,6 @@ export default function App() {
                     "{selectedTestimonial.text}"
                   </p>
                 </div>
-
-                <div className="flex flex-wrap gap-4">
-                  <button 
-                    onClick={() => handleGenerateVisual(selectedTestimonial)}
-                    disabled={isGenerating}
-                    className="px-8 py-4 bg-white text-black font-bold rounded-full flex items-center gap-3 hover:bg-luxury-accent transition-all disabled:opacity-50"
-                  >
-                    <Sparkles className="w-5 h-5" />
-                    Magic Visual
-                  </button>
-                  <button 
-                    onClick={() => handleGenerateVideo(selectedTestimonial)}
-                    disabled={isGenerating}
-                    className="px-8 py-4 bg-luxury-accent text-black font-bold rounded-full flex items-center gap-3 hover:scale-105 transition-all disabled:opacity-50"
-                  >
-                    <Video className="w-5 h-5" />
-                    Cinematic Video
-                  </button>
-                </div>
-              </div>
-
-              {/* Right Side: Media Display */}
-              <div className="flex-1 bg-black/60 border-l border-white/10 flex flex-col items-center justify-center p-12 relative min-h-[500px]">
-                {isGenerating ? (
-                  <div className="flex flex-col items-center gap-8 text-center">
-                    <div className="relative">
-                      <Loader2 className="w-20 h-20 text-luxury-accent animate-spin" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-10 h-10 bg-luxury-accent/20 rounded-full animate-ping" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-serif mb-3">AI is Crafting...</h3>
-                      <p className="text-white/40 text-sm animate-pulse tracking-widest uppercase">{generationStep}</p>
-                    </div>
-                  </div>
-                ) : generatedVideo ? (
-                  <div className="w-full h-full flex flex-col gap-6">
-                    <video 
-                      src={generatedVideo} 
-                      controls 
-                      autoPlay 
-                      className="w-full aspect-video rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
-                    />
-                    <div className="flex justify-between items-center px-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-luxury-accent rounded-full animate-pulse" />
-                        <span className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Veo AI Generation</span>
-                      </div>
-                      <a href={generatedVideo} download="testimonial-video.mp4" className="text-luxury-accent text-xs flex items-center gap-2 hover:underline font-bold">
-                        Download HD <ExternalLink className="w-3 h-3" />
-                      </a>
-                    </div>
-                  </div>
-                ) : generatedVisual ? (
-                  <div className="w-full h-full flex flex-col gap-6">
-                    <img 
-                      src={generatedVisual} 
-                      alt="Generated Visual" 
-                      className="w-full aspect-video object-cover rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
-                    />
-                    <div className="flex justify-between items-center px-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-luxury-accent rounded-full animate-pulse" />
-                        <span className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Gemini 2.5 Visual</span>
-                      </div>
-                      <button 
-                        onClick={() => handleGenerateVideo(selectedTestimonial, generatedVisual)}
-                        className="text-luxury-accent text-xs flex items-center gap-2 hover:underline font-bold"
-                      >
-                        Animate with Veo AI <Video className="w-3 h-3" />
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-8 border border-white/10">
-                      <ImageIcon className="w-10 h-10 text-white/20" />
-                    </div>
-                    <p className="text-white/40 font-serif italic text-lg leading-relaxed">
-                      Select an action to generate <br />
-                      <span className="text-luxury-accent">world-class media</span>
-                    </p>
-                  </div>
-                )}
               </div>
             </motion.div>
           </motion.div>
@@ -655,6 +623,7 @@ export default function App() {
             <div>
               <h4 className="text-xs uppercase tracking-widest text-luxury-accent font-bold mb-6">Program</h4>
               <ul className="space-y-4 text-sm text-white/60">
+                <li><a href="https://www.exoorg.com/ODeX" target="_blank" rel="noreferrer" className="hover:text-white transition-colors font-bold text-luxury-accent">ODeX Official Page</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Theory U</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Exponential Orgs</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Strategic Thinking</a></li>
