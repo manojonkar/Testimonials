@@ -1,0 +1,8 @@
+{
+  "name": "ODeX Testimonials",
+  "description": "A world-class platform to transform professional testimonials into stunning visuals and cinematic videos using Gemini and Veo AI.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
