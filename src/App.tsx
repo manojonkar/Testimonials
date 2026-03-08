@@ -464,7 +464,7 @@ export default function App() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden glass p-3">
                 <img 
-                  src="https://i.ibb.co/v4m0n9v/manoj-onkar.jpg" 
+                  src="https://i.ibb.co/jPR18mYW/manoj-onkar.jpg" 
                   className="w-full h-full object-cover rounded-[2.5rem]"
                   alt="Manoj Onkar"
                   referrerPolicy="no-referrer"
