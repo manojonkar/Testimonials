@@ -91,12 +91,6 @@ export default function App() {
         <section className="relative h-screen flex items-center justify-center overflow-hidden px-6">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-luxury-bg/50 to-luxury-bg" />
-            <img 
-              src="https://picsum.photos/seed/leadership/1920/1080?blur=10" 
-              className="w-full h-full object-cover opacity-20"
-              alt="Background"
-              referrerPolicy="no-referrer"
-            />
           </div>
           
           <motion.div 
@@ -461,16 +455,16 @@ export default function App() {
         {/* Meet Your Faculty Section */}
         <section className="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-[3rem] overflow-hidden glass p-3">
+            <div className="relative max-w-sm mx-auto lg:mx-0">
+              <div className="aspect-square rounded-[2rem] overflow-hidden glass p-2">
                 <img 
-                  src="https://i.ibb.co/fV1q2Lby/manoj-onkar.jpg" 
-                  className="w-full h-full object-cover rounded-[2.5rem] grayscale hover:grayscale-0 transition-all duration-700"
+                  src="https://i.ibb.co/jPR18mYW/manoj.jpg" 
+                  className="w-full h-full object-cover rounded-[1.5rem] grayscale hover:grayscale-0 transition-all duration-700"
                   alt="Manoj Onkar"
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="absolute -bottom-10 -right-10 glass p-8 rounded-3xl border border-white/10 max-w-xs">
+              <div className="absolute -bottom-24 -left-8 lg:-left-32 glass p-6 rounded-3xl border border-white/10 max-w-[260px] z-20">
                 <p className="text-sm font-serif italic mb-4">"His teaching style is dynamic, energetic, and highly motivational, making even complex subjects easy to grasp and apply."</p>
                 <p className="text-[10px] uppercase tracking-widest text-luxury-accent font-bold">Workshop Participant</p>
               </div>
