@@ -242,7 +242,7 @@ export default function App() {
             <p className="text-white/40 max-w-xl mx-auto">Hear directly from the senior professionals and business leaders who have experienced the ODeX transformation.</p>
           </div>
 
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+          <div className="max-w-3xl mx-auto space-y-8">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.id}
@@ -251,7 +251,7 @@ export default function App() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 onClick={() => setSelectedTestimonial(t)}
-                className="break-inside-avoid luxury-card glass p-8 cursor-pointer group"
+                className="luxury-card glass p-8 cursor-pointer group"
               >
                 <div className="flex items-center gap-4 mb-6">
                   <Avatar src={t.image} name={t.name} />
