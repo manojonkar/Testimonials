@@ -68,7 +68,7 @@ export const testimonials: Testimonial[] = [
     id: "5",
     name: "Ramakrishnan (Ram) A G",
     role: "Retd. Prof, EE & Neuroscience",
-    company: "I.I.Sc.",
+    company: "IISc.",
     text: "In this ODeX program, I am finding meaningful answers to all the questions, concerns, and challenges I had throughout my career at different times. Creating an extraordinary organization requires conscious effort and direction from the top; you must make hard choices about what you will and will not do. It will have a massive transformative purpose - born of eco-thinking - to make a deep social impact or contribution. A place where there is collaborative thinking and co-creation, where all the stakeholders have a sense of belonging, are inspired by the organization's purpose, listen deeply, and are ready to contribute.",
     image: "https://i.ibb.co/bjypyCX0/RAM-AGR.jpg"
   },
