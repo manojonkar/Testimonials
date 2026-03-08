@@ -464,8 +464,8 @@ export default function App() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden glass p-3">
                 <img 
-                  src="https://i.ibb.co/jPR18mYW/manoj-onkar.jpg" 
-                  className="w-full h-full object-cover rounded-[2.5rem]"
+                  src="https://ais-dev-j5wbfygthxggxanou46yek-452281728143.asia-southeast1.run.app/api/v1/files/ais-dev-j5wbfygthxggxanou46yek-452281728143/67cc8f0c33a105002931448b" 
+                  className="w-full h-full object-cover rounded-[2.5rem] grayscale hover:grayscale-0 transition-all duration-700"
                   alt="Manoj Onkar"
                   referrerPolicy="no-referrer"
                 />
