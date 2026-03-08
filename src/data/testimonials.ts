@@ -100,7 +100,7 @@ export const testimonials: Testimonial[] = [
     id: "6",
     name: "Anil Bahl",
     role: "Business Coach and Life Coach",
-    company: "Independent",
+    company: "Business & Life Coach",
     text: "One of my key takeaways from this program was the realization that with rapid technological shifts, nearly all industries face a high probability of disruption within the next 3 to 5 years. For business leaders, the choices is clear: disrupt or be disrupted. I've already begun applying the tools and insights gained from this program to support my clients in navigating those critical period, unlike any we've experienced before.",
     image: "https://i.ibb.co/dsMVf2QC/Anil-Bahl-CCODP-Participant.jpg"
   },
