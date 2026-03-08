@@ -71,5 +71,61 @@ export const testimonials: Testimonial[] = [
     company: "Amplus Subsidy Solutions",
     text: "The ODeX Programme has been the Life Transforming experience. I am able to see the shift in my Thinking and execution. The Impact and lens to operate as an Organization is completely different in terms of communication, customers, Process, Strategy, stakeholders, finances, Team etc. The tools provided are thoroughly justified. The ODeX Learning Program is an interactive session and about supporting each other for inclusive growth and create a massive purpose to sustain the universe and individual. We are able to create our own emerging plans. Its all about creating an Exponential Organization with very very very Long Term approach.",
     image: "https://i.ibb.co/GQYs0nxT/Adesh-Gothi.jpg"
+  },
+  {
+    id: "9",
+    name: "Vishwanath Mosale",
+    role: "Co Founder",
+    company: "Suryojasvi Group",
+    text: "The founders and key managers in our organization have participated in sessions conducted by Mr. Manoj Onkar. These sessions have been immensely valuable, driving immediate and meaningful shifts in alignment and collaboration—not just within our leadership team, but also in how we engage with customers and supplier partners. On a personal note, the experience has helped me sharpen my focus and sense of purpose, making the journey ahead feel exciting and inspired.",
+    image: "https://picsum.photos/seed/vishwanath/400/400"
+  },
+  {
+    id: "10",
+    name: "Chetan Khosla",
+    role: "Chairman & Founder",
+    company: "Suryojasvi Group",
+    text: "Our group's founding team, including myself, recently completed the ODeX program that started in January, expertly designed and led by Mr. Manoj Onkar. This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations. Manoj's definition of 'extraordinary'—future-ready, people-centric (head, heart, and soul), and a positive societal force—resonated deeply, and the program delivered on every count. Manoj's training on a curated suite of widely accepted management technologies provided a clear roadmap. Many of these concepts were revelatory, offering practical insights we immediately saw ourselves implementing. These skills and concepts covered Leadership, Culture Transformation, Strategy, Execution & Talent Management. His highly engaging, effective, and exercise-based approach ensures that these aren't just theories, but actionable skills for senior leaders. One can literally see perspectives changing and change getting deployed in the organisation during the course of the program. The program's impact was so significant that we've since enrolled a substantial group of 15 leaders and functional heads across our company in the April 2025 cohort. I strongly endorse the ODeX program for all founders and leaders of organisations, who are committed to building truly exceptional organizations.",
+    image: "https://picsum.photos/seed/chetan/400/400"
+  },
+  {
+    id: "11",
+    name: "Dr. Aswath Babu H.",
+    role: "Assistant Professor in Physics",
+    company: "IIIT Dharwad",
+    text: "Joining ODeX was a turning point in how I think about problems and people. Over six months, I moved from a purely academic mindset to one rooted in empathy and entrepreneurial action. I learned to identify real customer segments — not broad populations, but specific people with specific struggles. I discovered the discipline of problem–solution fit: building ideas from genuine pain points, not assumptions. The program sharpened my ability to ask better questions, listen more deeply, and articulate ideas with clarity and conviction. Perhaps most importantly, ODeX gave me a structured framework to think about innovation — one that connects individual creativity to social and economic impact. I now carry both the mindset and the tools to help students and communities turn ideas into meaningful solutions. ODeX transformed how I see problems — and how I inspire others to solve them.",
+    image: "https://picsum.photos/seed/aswath/400/400"
+  },
+  {
+    id: "12",
+    name: "Naveen Sharma",
+    role: "Founder & CEO",
+    company: "AutoSherpa | YOCOYA | TransMon",
+    text: "Thank you for the ODeX program. What made it truly distinctive was that it didn’t feel like a “module we studied” — it was leadership practiced in real time. The live exercises, stakeholder interviews, empathy walks, role plays, and case clinics forced me to step out of my own assumptions and deal with reality, not just my interpretation of it. We made a diary full of lines from your workshop. I’ve already started applying this by pausing, listening for facts and feelings, and intentionally inviting contradicting data instead of rushing to conclusions. Your emphasis on accepting “I’m not a good listener” as the starting point was uncomfortable, but incredibly effective. I also valued the practical leadership habits you pushed us toward: not being “married to a department” but committed to the company’s outcomes, and viewing leadership as a service to stakeholders. The shift from ego-centric reactions to an eco-centric, stakeholder-led way of working is something I can clearly feel in my day-to-day decisions. I’m grateful for your coaching, and I would strongly recommend your program to any leader who wants measurable improvement in listening, collaboration, and execution — not just inspiration.",
+    image: "https://picsum.photos/seed/naveen/400/400"
+  },
+  {
+    id: "13",
+    name: "Rudrappa Mirekar",
+    role: "CEO",
+    company: "Trasccon Interconnection Systems Pvt Ltd",
+    text: "I had the opportunity to undergo the ODEX program training facilitated by Mr. Manoj Onkar, and it proved to be a highly valuable learning experience. The training was well structured, practical, and very impactful. The program strengthened my understanding and provided practical tools that can be effectively applied in our professional roles, enabling us to progress toward our full potential. Members of the leadership team from my organization also participated in the training, and we have collectively observed positive improvements in our professional approach as well as in personal effectiveness.",
+    image: "https://picsum.photos/seed/rudrappa/400/400"
+  },
+  {
+    id: "14",
+    name: "Surender Singh",
+    role: "Director - Sales",
+    company: "Trasccon Interconnection Systems Pvt Ltd",
+    text: "This training program was a truly transformative experience, both personally and professionally. It goes beyond conventional learning to focus on mindset, leadership behavior, and practical execution. The emphasis on self-awareness and accountability helped me reflect deeply on my leadership style and its impact on teams and culture. I highly recommend this program to leaders and entrepreneurs seeking meaningful, sustainable change and high-performing teams.",
+    image: "https://picsum.photos/seed/surender/400/400"
+  },
+  {
+    id: "15",
+    name: "Nilesh Surana",
+    role: "Lean Management Consultant",
+    company: "Management Innovations",
+    text: "Building a strong community is a foundation for growth. Since learning Organizational Development with Manoj Onkar, we started doing awareness programs with purpose. As a result, more than 2,000 entrepreneurs joined our knowledge sessions on lean management and OD. Our business has grown exponentially. But the most significant part is that our systems are ready to serve customers and our community is established. Now our community is expanding our work. Our net promoter score has significantly grown because our customers are getting good results from strategic mapping. Earlier they were getting results in 1-2 years, now they get them in 6-8 months. Because they are getting rapid success, they are promoting our services. Our operational cost has significantly decreased while results have grown immensely. OD is about a culture of productivity and efficiency. I'm not developing only myself, I'm developing all the processes, the people around me, my customers, and the community. Growth is happening with responsibility.",
+    image: "https://picsum.photos/seed/nilesh/400/400"
   }
 ];
