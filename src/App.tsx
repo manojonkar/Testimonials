@@ -227,13 +227,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-20 px-6 max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          <StatCard icon={Users} label="Leaders Trained" value="500+" />
-          <StatCard icon={Award} label="Success Rate" value="98%" />
-          <StatCard icon={Zap} label="Industries" value="25+" />
-          <StatCard icon={Star} label="Avg. Rating" value="4.9/5" />
-        </section>
 
         {/* Wall of Love */}
         <section id="testimonials" className="py-32 px-6 max-w-7xl mx-auto">
