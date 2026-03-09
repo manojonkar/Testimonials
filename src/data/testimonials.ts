@@ -14,11 +14,11 @@ export const testimonials: Testimonial[] = [
   {testimonial.text.split("\n\n").map((paragraph, index) => (
     <p key={index} className="text-white/80 leading-9">
       {paragraph}
-    </p>
+    
   ))}
 </div>
   {testimonial.text}
-</p>  
+ 
     id: "10",
     name: "Chetan Khosla",
     role: "Chairman & Founder",
