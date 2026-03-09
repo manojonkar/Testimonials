@@ -21,7 +21,7 @@ export const testimonials: Testimonial[] = [
     name: "Rudrappa Mirekar",
     role: "CEO",
     company: "Trasccon Interconnection Systems Pvt Ltd",
-    text: "I had the opportunity to undergo the ODEX program training facilitated by Mr. Manoj Onkar, and it proved to be a highly valuable learning experience. The training was well structured, practical, and very impactful. The program strengthened my understanding and provided practical tools that can be effectively applied in our professional roles, enabling us to progress toward our full potential. Members of the leadership team from my organization also participated in the training, and we have collectively observed positive improvements in our professional approach as well as in personal effectiveness.",
+    text: "I had the opportunity to undergo the ODEX program training facilitated by Mr. Manoj Onkar, and it proved to be a highly valuable learning experience.\n\n The training was well structured, practical, and very impactful. \n\nThe program strengthened my understanding and provided practical tools that can be effectively applied in our professional roles, enabling us to progress toward our full potential. Members of the leadership team from my organization also participated in the training, and we have collectively observed positive improvements in our professional approach as well as in personal effectiveness.",
     image: "https://i.ibb.co/gbkKVx1T/Rudrappa-Mirekar.jpg"
   },
   {
