@@ -24,10 +24,10 @@ export const testimonials: Testimonial[] = [
     role: "Chairman & Founder",
     company: "Suryojasvi Group",
     text: Our group's founding team, including myself, recently completed the ODeX program that started in January, expertly designed and led by Mr. Manoj Onkar.<p>
-This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations.<p>
+This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations.<p>" \n\n
 
   Manoj's definition of 'extraordinary'—future-ready, people-centric (head, heart, and soul), and a positive societal force—resonated deeply, and the program delivered on every count. <p>
-  Manoj's training on a curated suite of widely accepted management technologies provided a clear roadmap.<p>
+  Manoj's training on a curated suite of widely accepted management technologies provided a clear roadmap.<p>\n\n
 Many of these concepts were revelatory, offering practical insights we immediately saw ourselves implementing.<p>
 These skills and concepts covered Leadership, Culture Transformation, Strategy, Execution & Talent Management.\n\n\
 His highly engaging, effective, and exercise-based approach ensures that these aren't just theories, but actionable skills for senior leaders.\n\n\
