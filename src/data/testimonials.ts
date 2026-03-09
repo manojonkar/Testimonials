@@ -9,6 +9,9 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
+  <p style={{ whiteSpace: "pre-line" }}>
+  {testimonial.text}
+</p>  
     id: "10",
     name: "Chetan Khosla",
     role: "Chairman & Founder",
