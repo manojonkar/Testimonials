@@ -13,7 +13,9 @@
 .testimonial-text {
   white-space: pre-line;
 }
-
+<p style={{ whiteSpace: "pre-line" }}>
+  {testimonial.text}
+</p>
 @layer base {
   body {
     @apply bg-luxury-bg text-white font-sans antialiased;
