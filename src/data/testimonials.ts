@@ -134,7 +134,7 @@ I strongly endorse the ODeX program for all founders and leaders of organisation
     id: "3",
     name: "Isha",
     role: "Organizational Psychologist",
-    company: "Independent",
+    company: "Organizational Psychologist",
     text: "One of my biggest takeaways is the importance of having a solid strategy that is adaptable to the dynamic business environment. I learned how crucial it is to continuously refine strategic approaches to stay aligned with changes and challenges. This program has equipped me with tools and insights to not only understand organizational needs but to actively contribute to their growth and transformation.",
     image: "https://i.ibb.co/v4XyK03b/Isha-Bahl-CCODP-Participant.jpg"
   }
