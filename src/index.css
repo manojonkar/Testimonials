@@ -10,16 +10,15 @@
   --color-luxury-accent: #F27D26;
   --color-luxury-paper: #f5f2ed;
 }
-.testimonial-text {
-  white-space: pre-line;
-}
-<p style={{ whiteSpace: "pre-line" }}>
-  {testimonial.text}
-</p>
+
 @layer base {
   body {
     @apply bg-luxury-bg text-white font-sans antialiased;
   }
+}
+
+.testimonial-text {
+  white-space: pre-line;
 }
 
 .glass {
@@ -64,4 +63,3 @@
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
-white-space: pre-line;
