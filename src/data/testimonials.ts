@@ -139,7 +139,7 @@ I strongly endorse the ODeX program for all founders and leaders of organisation
     image: "https://i.ibb.co/v4XyK03b/Isha-Bahl-CCODP-Participant.jpg"
   }
 ];
-id: "20",
+id: "16",
     name: "Alpesh Gandhi",
     role: "Managing Director",
     company: "Ami Polymer",
