@@ -137,3 +137,15 @@ I strongly endorse the ODeX program for all founders and leaders of organisation
     image: "https://i.ibb.co/v4XyK03b/Isha-Bahl-CCODP-Participant.jpg"
   }
 ];
+id: "20",
+    name: "Alpesh Gandhi",
+    role: "Managing Director",
+    company: "Ami Polymer",
+    text: "  I have attended multiple workshops and training programs led by Manoj Onkar, and each experience has reinforced his reputation as a world-class trainer, coach and OD Consultant.
+Manoj has a unique ability to engage participants of all levels, creating a learning environment that is both stimulating and supportive. His sessions are thoughtfully designed, combining theory, practical exercises, and real-life examples that make the learning experience holistic and impactful.
+Manoj excels in connecting with his audience. He listens actively, addresses individual concerns, and ensures that every participant leaves with a clear understanding of the topic. His teaching style is dynamic, energetic, and highly motivational, making even complex subjects easy to grasp and apply.
+Beyond his technical expertise, Manoj inspires growth, self-awareness, and confidence. Participants not only learn new skills but also develop a mindset geared toward continuous improvement. I wholeheartedly recommend Manoj Onkar as a master trainer, coach and most importantly as an OD Consultant for anyone looking to experience transformative, results-oriented learning.” 
+   
+  
+
+image: "https://i.ibb.co/v4XyK03b/Isha-Bahl-CCODP-Participant.jpg"
