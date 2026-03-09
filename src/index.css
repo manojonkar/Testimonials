@@ -17,10 +17,6 @@
   }
 }
 
-.testimonial-text {
-  white-space: pre-line;
-}
-
 .glass {
   @apply bg-white/5 backdrop-blur-xl border border-white/10;
 }
