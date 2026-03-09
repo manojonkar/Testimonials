@@ -10,6 +10,7 @@
   --color-luxury-accent: #F27D26;
   --color-luxury-paper: #f5f2ed;
 }
+white-space: pre-line;
 
 @layer base {
   body {
