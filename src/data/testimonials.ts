@@ -13,27 +13,16 @@ export const testimonials: Testimonial[] = [
     name: "Chetan Khosla",
     role: "Chairman & Founder",
     company: "Suryojasvi Group",
-    text: "Our group's founding team, including myself, recently completed the ODeX program that started in January, expertly designed and led by Mr. Manoj Onkar. 
-  
-  \n\n This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations. \n\n
- 
-  \n\n Manoj's definition of 'extraordinary'—future-ready, people-centric (head, heart, and soul), and a positive societal force—resonated deeply, and the program delivered on every count. 
- 
-  Manoj's training on a curated suite of widely accepted management technologies provided a clear roadmap. \n\n
-    
- 
-    Many of these concepts were revelatory, offering practical insights we immediately saw ourselves implementing. 
- 
-      These skills and concepts covered Leadership, Culture Transformation, Strategy, Execution & Talent Management. 
- 
-      His highly engaging, effective, and exercise-based approach ensures that these aren't just theories, but actionable skills for senior leaders. 
- 
-      One can literally see perspectives changing and change getting deployed in the organisation during the course of the program. 
- 
-        The program's impact was so significant that we've since enrolled a substantial group of 15 leaders and functional heads across our company in the April 2025 cohort. 
- 
-        I strongly endorse the ODeX program for all founders and leaders of organisations, who are committed to building truly exceptional organizations.",
-    image: "https://i.ibb.co/Rk5VLLpj/Chetan-Khosla.jpg"
+    text: "Our group's founding team, including myself, recently completed the ODeX program that started in January, expertly designed and led by Mr. Manoj Onkar.\n\n\
+This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations.\n\n\
+Manoj's definition of 'extraordinary'—future-ready, people-centric (head, heart, and soul), and a positive societal force—resonated deeply, and the program delivered on every count.\n\n\
+Manoj's training on a curated suite of widely accepted management technologies provided a clear roadmap.\n\n\
+Many of these concepts were revelatory, offering practical insights we immediately saw ourselves implementing.\n\n\
+These skills and concepts covered Leadership, Culture Transformation, Strategy, Execution & Talent Management.\n\n\
+His highly engaging, effective, and exercise-based approach ensures that these aren't just theories, but actionable skills for senior leaders.\n\n\
+One can literally see perspectives changing and change getting deployed in the organisation during the course of the program.\n\n\
+The program's impact was so significant that we've since enrolled a substantial group of 15 leaders and functional heads across our company in the April 2025 cohort.\n\n\
+I strongly endorse the ODeX program for all founders and leaders of organisations, who are committed to building truly exceptional organizations.",    image: "https://i.ibb.co/Rk5VLLpj/Chetan-Khosla.jpg"
   },
   {
     id: "13",
