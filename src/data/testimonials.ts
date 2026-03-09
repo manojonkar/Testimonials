@@ -9,31 +9,12 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-  <p style={{ whiteSpace: "pre-line" }}>
-  <div className="space-y-5">
-  {testimonial.text.split("\n\n").map((paragraph, index) => (
-    <p key={index} className="text-white/80 leading-9">
-      {paragraph}
-    
-  ))}
-</div>
-  {testimonial.text}
- 
     id: "10",
     name: "Chetan Khosla",
     role: "Chairman & Founder",
     company: "Suryojasvi Group",
-    text: Our group's founding team, including myself, recently completed the ODeX program that started in January, expertly designed and led by Mr. Manoj Onkar.<p>
-This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations.<p>" \n\n
-
-  Manoj's definition of 'extraordinary'—future-ready, people-centric (head, heart, and soul), and a positive societal force—resonated deeply, and the program delivered on every count. <p>
-  Manoj's training on a curated suite of widely accepted management technologies provided a clear roadmap.<p>\n\n
-Many of these concepts were revelatory, offering practical insights we immediately saw ourselves implementing.<p>
-These skills and concepts covered Leadership, Culture Transformation, Strategy, Execution & Talent Management.\n\n\
-His highly engaging, effective, and exercise-based approach ensures that these aren't just theories, but actionable skills for senior leaders.\n\n\
-One can literally see perspectives changing and change getting deployed in the organisation during the course of the program.\n\n\
-The program's impact was so significant that we've since enrolled a substantial group of 15 leaders and functional heads across our company in the April 2025 cohort.\n\n\
-I strongly endorse the ODeX program for all founders and leaders of organisations, who are committed to building truly exceptional organizations.,    image: "https://i.ibb.co/Rk5VLLpj/Chetan-Khosla.jpg"
+    text: "Our group's founding team, including myself, recently completed the ODeX program that started in January, expertly designed and led by Mr. Manoj Onkar.\n\nThis program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations.\n\nManoj's definition of 'extraordinary'—future-ready, people-centric (head, heart, and soul), and a positive societal force—resonated deeply, and the program delivered on every count.\n\nManoj's training on a curated suite of widely accepted management technologies provided a clear roadmap.\n\nMany of these concepts were revelatory, offering practical insights we immediately saw ourselves implementing.\n\nThese skills and concepts covered Leadership, Culture Transformation, Strategy, Execution & Talent Management.\n\nHis highly engaging, effective, and exercise-based approach ensures that these aren't just theories, but actionable skills for senior leaders.\n\nOne can literally see perspectives changing and change getting deployed in the organisation during the course of the program.\n\nThe program's impact was so significant that we've since enrolled a substantial group of 15 leaders and functional heads across our company in the April 2025 cohort.\n\nI strongly endorse the ODeX program for all founders and leaders of organisations, who are committed to building truly exceptional organizations.",
+    image: "https://i.ibb.co/Rk5VLLpj/Chetan-Khosla.jpg"
   },
   {
     id: "13",
@@ -87,7 +68,7 @@ I strongly endorse the ODeX program for all founders and leaders of organisation
     id: "5",
     name: "Ramakrishnan (Ram) A G",
     role: "Retd. Prof, EE & Neuroscience",
-    company: "IISc ",
+    company: "IISc",
     text: "In this ODeX program, I am finding meaningful answers to all the questions, concerns, and challenges I had throughout my career at different times. Creating an extraordinary organization requires conscious effort and direction from the top; you must make hard choices about what you will and will not do. It will have a massive transformative purpose - born of eco-thinking - to make a deep social impact or contribution. A place where there is collaborative thinking and co-creation, where all the stakeholders have a sense of belonging, are inspired by the organization's purpose, listen deeply, and are ready to contribute.",
     image: "https://i.ibb.co/bjypyCX0/RAM-AGR.jpg"
   },
@@ -103,7 +84,7 @@ I strongly endorse the ODeX program for all founders and leaders of organisation
     id: "7",
     name: "Vandana Bhansali",
     role: "HR Head",
-    company: "Corporate",
+    company: "CHRO",
     text: "I joined this programme to understand basic foundations of organisation development and how to implement the same beyond theory and concepts. It's been 4.5 months now in the programme and I am delighted to share that whatever I have learnt so far related to Organisation Development, I was able to implement the same real time with my fellow participants, at my current workplace and at my other voluntary associations. Some of the tools like deep listening, empathy walks, stakeholder interviews, 5 Choice Framework, Case Clinics are very powerful and these tools are independent of sector, size, stage of organization.",
     image: "https://i.ibb.co/Q7rwGHdZ/Vandana-Bhansali.jpg"
   },
@@ -135,7 +116,7 @@ I strongly endorse the ODeX program for all founders and leaders of organisation
     id: "15",
     name: "Nilesh Surana",
     role: "Lean Management Consultant",
-    company: "Management Innovations",
+    company: "Lean & OD Coach",
     text: "Building a strong community is a foundation for growth. Since learning Organizational Development with Manoj Onkar, we started doing awareness programs with purpose. As a result, more than 2,000 entrepreneurs joined our knowledge sessions on lean management and OD. Our business has grown exponentially. But the most significant part is that our systems are ready to serve customers and our community is established. Now our community is expanding our work. Our net promoter score has significantly grown because our customers are getting good results from strategic mapping. Earlier they were getting results in 1-2 years, now they get them in 6-8 months. Because they are getting rapid success, they are promoting our services. Our operational cost has significantly decreased while results have grown immensely. OD is about a culture of productivity and efficiency. I'm not developing only myself, I'm developing all the processes, the people around me, my customers, and the community. Growth is happening with responsibility.",
     image: "https://i.ibb.co/gM9vTdBT/Nilesh-Surana.jpg"
   },
@@ -146,17 +127,13 @@ I strongly endorse the ODeX program for all founders and leaders of organisation
     company: "Organizational Psychologist",
     text: "One of my biggest takeaways is the importance of having a solid strategy that is adaptable to the dynamic business environment. I learned how crucial it is to continuously refine strategic approaches to stay aligned with changes and challenges. This program has equipped me with tools and insights to not only understand organizational needs but to actively contribute to their growth and transformation.",
     image: "https://i.ibb.co/v4XyK03b/Isha-Bahl-CCODP-Participant.jpg"
-  }
-];
-id: "16",
+  },
+  {
+    id: "16",
     name: "Alpesh Gandhi",
     role: "Managing Director",
     company: "Ami Polymer",
-    text: "  I have attended multiple workshops and training programs led by Manoj Onkar, and each experience has reinforced his reputation as a world-class trainer, coach and OD Consultant.
-Manoj has a unique ability to engage participants of all levels, creating a learning environment that is both stimulating and supportive. His sessions are thoughtfully designed, combining theory, practical exercises, and real-life examples that make the learning experience holistic and impactful.
-Manoj excels in connecting with his audience. He listens actively, addresses individual concerns, and ensures that every participant leaves with a clear understanding of the topic. His teaching style is dynamic, energetic, and highly motivational, making even complex subjects easy to grasp and apply.
-Beyond his technical expertise, Manoj inspires growth, self-awareness, and confidence. Participants not only learn new skills but also develop a mindset geared toward continuous improvement. I wholeheartedly recommend Manoj Onkar as a master trainer, coach and most importantly as an OD Consultant for anyone looking to experience transformative, results-oriented learning.” 
-   
-  
-
-image: "https://ibb.co/J8t4xJq"
+    text: "I have attended multiple workshops and training programs led by Manoj Onkar, and each experience has reinforced his reputation as a world-class trainer, coach and OD Consultant.\n\nManoj has a unique ability to engage participants of all levels, creating a learning environment that is both stimulating and supportive. His sessions are thoughtfully designed, combining theory, practical exercises, and real-life examples that make the learning experience holistic and impactful.\n\nManoj excels in connecting with his audience. He listens actively, addresses individual concerns, and ensures that every participant leaves with a clear understanding of the topic. His teaching style is dynamic, energetic, and highly motivational, making even complex subjects easy to grasp and apply.\n\nBeyond his technical expertise, Manoj inspires growth, self-awareness, and confidence. Participants not only learn new skills but also develop a mindset geared toward continuous improvement. I wholeheartedly recommend Manoj Onkar as a master trainer, coach and most importantly as an OD Consultant for anyone looking to experience transformative, results-oriented learning.",
+    image: "https://i.ibb.co/J8t4xJq/Alpesh-Gandhi.jpg"
+  }
+];
