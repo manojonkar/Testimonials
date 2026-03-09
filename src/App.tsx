@@ -638,7 +638,7 @@ export default function App() {
             <div className="relative max-w-sm mx-auto lg:mx-0">
               <div className="aspect-square rounded-[2rem] overflow-hidden glass p-2">
                 <img
-                  src="src="https://i.ibb.co/6cNNKw2k/manoj.jpg"
+                  src="src="src="https://i.ibb.co/jPR18mYW/manoj.jpg"
                   className="w-full h-full object-cover rounded-[1.5rem] grayscale hover:grayscale-0 transition-all duration-700"
                   alt="Manoj Onkar"
                   referrerPolicy="no-referrer"
