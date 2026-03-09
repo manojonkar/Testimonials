@@ -150,4 +150,4 @@ Beyond his technical expertise, Manoj inspires growth, self-awareness, and confi
    
   
 
-image: "https://i.ibb.co/v4XyK03b/Isha-Bahl-CCODP-Participant.jpg"
+image: "https://ibb.co/J8t4xJq"
