@@ -10,19 +10,25 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
   <p style={{ whiteSpace: "pre-line" }}>
+  <div className="space-y-5">
+  {testimonial.text.split("\n\n").map((paragraph, index) => (
+    <p key={index} className="text-white/80 leading-9">
+      {paragraph}
+    </p>
+  ))}
+</div>
   {testimonial.text}
 </p>  
     id: "10",
     name: "Chetan Khosla",
     role: "Chairman & Founder",
     company: "Suryojasvi Group",
-    text: Our group's founding team, including myself, recently completed the ODeX program that started in January, expertly designed and led by Mr. Manoj Onkar.\n\n\
-This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations.\n\n\
+    text: Our group's founding team, including myself, recently completed the ODeX program that started in January, expertly designed and led by Mr. Manoj Onkar.<p>
+This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations.<p>
 
-  Manoj's definition of 'extraordinary'—future-ready, people-centric (head, heart, and soul), and a positive societal force—resonated deeply, and the program delivered on every count.\n\n\
-
-  Manoj's training on a curated suite of widely accepted management technologies provided a clear roadmap.\n\n\
-Many of these concepts were revelatory, offering practical insights we immediately saw ourselves implementing.\n\n\
+  Manoj's definition of 'extraordinary'—future-ready, people-centric (head, heart, and soul), and a positive societal force—resonated deeply, and the program delivered on every count. <p>
+  Manoj's training on a curated suite of widely accepted management technologies provided a clear roadmap.<p>
+Many of these concepts were revelatory, offering practical insights we immediately saw ourselves implementing.<p>
 These skills and concepts covered Leadership, Culture Transformation, Strategy, Execution & Talent Management.\n\n\
 His highly engaging, effective, and exercise-based approach ensures that these aren't just theories, but actionable skills for senior leaders.\n\n\
 One can literally see perspectives changing and change getting deployed in the organisation during the course of the program.\n\n\
