@@ -6,48 +6,106 @@
   --font-serif: "Cormorant Garamond", serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-luxury-bg: #050505;
-  --color-luxury-accent: #F27D26;
-  --color-luxury-paper: #f5f2ed;
+  --color-luxury-bg: #0B132B;
+  --color-luxury-accent: #D4AF37;
+  --color-luxury-paper: #F8F7F3;
+  --color-luxury-secondary: #1C2541;
+  --color-luxury-muted: #C9D1D9;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-luxury-bg text-white font-sans antialiased;
+    @apply text-white font-sans antialiased;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.08), transparent 28%),
+      radial-gradient(circle at 80% 18%, rgba(255, 255, 255, 0.05), transparent 22%),
+      linear-gradient(180deg, #0B132B 0%, #07101F 55%, #020617 100%);
+    min-height: 100vh;
   }
 }
 
 .glass {
-  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50;
+  background: linear-gradient(90deg, #ffffff 0%, #d9dee7 45%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .luxury-card {
-  @apply relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.02];
+  @apply relative overflow-hidden rounded-2xl transition-all duration-500;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.22);
+}
+
+.luxury-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.30);
 }
 
 .luxury-card::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 transition-opacity duration-500;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0.08) 0%,
+    rgba(255,255,255,0.02) 35%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 500ms ease;
+  pointer-events: none;
 }
 
 .luxury-card:hover::before {
-  @apply opacity-100;
+  opacity: 1;
+}
+
+.section-kicker {
+  @apply text-[11px] uppercase tracking-[0.28em] font-semibold;
+  color: rgba(212, 175, 55, 0.95);
+}
+
+.elevated-border {
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset;
+}
+
+.quote-bar {
+  border-left: 3px solid #D4AF37;
+  padding-left: 20px;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-transparent;
+  background: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.55);
 }
 
 @keyframes float {
